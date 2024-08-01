@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import FirebaseAuth
 
 class DeletedCellVC: AppUiViewController {
     
@@ -55,9 +56,15 @@ class DeletedCellVC: AppUiViewController {
     }
     
     func clearAllDeletedTasks() {
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("No user is logged in.")
+            return
+        }
+
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<UserDataEntity> = UserDataEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "isRemoved == %@", NSNumber(value: true))
+        
+        fetchRequest.predicate = NSPredicate(format: "isRemoved == %@ AND userID == %@", NSNumber(value: true), userID)
         
         do {
             let deletedTasks = try context.fetch(fetchRequest)
@@ -65,9 +72,12 @@ class DeletedCellVC: AppUiViewController {
             for task in deletedTasks {
                 context.delete(task)
             }
+            
             try context.save()
-            // Update the UI
+            
             fetchDeletedTasks()
+            
+            print("Deleted tasks cleared successfully.")
             
         } catch {
             print("ERROR CLEARING DELETED TASKS: ", error.localizedDescription)
@@ -75,9 +85,15 @@ class DeletedCellVC: AppUiViewController {
     }
     
     func fetchDeletedTasks() {
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("No user is logged in.")
+            return
+        }
+
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<UserDataEntity> = UserDataEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "isRemoved == %@", NSNumber(value: true))
+        
+        fetchRequest.predicate = NSPredicate(format: "isRemoved == %@ AND userID == %@", NSNumber(value: true), userID)
         
         do {
             deletedTasks = try context.fetch(fetchRequest)
@@ -90,6 +106,7 @@ class DeletedCellVC: AppUiViewController {
                 lblDeletedText.text = "History is Empty"
                 lblDeletedDesc.text = "No deleted tasks were found."
             } else {
+                btnClearall.isHidden = false
                 tableView.isHidden = false
                 lblDeletedText.isHidden = true
                 lblDeletedDesc.isHidden = true

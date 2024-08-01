@@ -49,6 +49,10 @@ class BottomSheetVCViewController: AppUiViewController {
         return true
     }
     
+    func getUserID() -> String? {
+        return Auth.auth().currentUser?.uid
+    }
+    
     @IBAction func addBtnAction(_ sender: Any) {
         
         guard let todo = taskFiled.text, !todo.isEmpty else {
@@ -64,8 +68,15 @@ class BottomSheetVCViewController: AppUiViewController {
             return
         }
         
+        guard let userID = Auth.auth().currentUser?.uid else {
+            self.toastView(toastMessage: "User not logged in.", type: "error")
+            return
+        }
+        
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let userEntity = UserDataEntity(context: context)
+        
+        userEntity.userID = userID
         userEntity.isRemoved = false
         userEntity.todo = todo
         userEntity.descriptions = desc
@@ -82,8 +93,8 @@ class BottomSheetVCViewController: AppUiViewController {
             print("User data saved successfully")
         } catch {
             print("Error saving user data:", error.localizedDescription)
+            self.toastView(toastMessage: "Error saving task. Please try again.", type: "error")
         }
-        print("NOT DISMISS UNTIL SAVE THE TASK INTO CORE DATA.")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

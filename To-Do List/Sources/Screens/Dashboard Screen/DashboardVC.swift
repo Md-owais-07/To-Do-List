@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import FirebaseAuth
 
 class DashboardVC: AppUiViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var HeaderView: UIView!
@@ -144,27 +145,43 @@ class DashboardVC: AppUiViewController, UIGestureRecognizerDelegate {
     }
     
     func fetchData() {
+        guard let userID = getCurrentUserID() else {
+            print("No user is logged in.")
+            return
+        }
+        
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<UserDataEntity> = UserDataEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "isRemoved == %@", NSNumber(value: false)) // Fetch only non-deleted tasks
+        
+        fetchRequest.predicate = NSPredicate(format: "isRemoved == %@ AND userID == %@", NSNumber(value: false), userID)
         
         do {
-            self.userData = try context.fetch(fetchRequest)
-            print("DATA IS FETCHING FROM CORE DATA...")
+            let results = try context.fetch(fetchRequest)
+            
+            if results.isEmpty {
+                print("No data found for user with ID: \(userID). This might be a new user.")
+                self.userData = []
+            } else {
+                self.userData = results
+                print("Data fetched for user with ID: \(userID)")
+            }
+            
             DispatchQueue.main.async {
                 self.updateRecentViewLabel()
                 self.updateCompleteTasksCount()
                 self.updateOngoingTaskCount()
                 self.updateTodoTasksCount()
                 self.tableView.reloadData()
-                print("DATA IS FETCHING AFTER DispatchQueue.main.async...")
             }
             
         } catch {
             print("Error fetching data from Core Data: \(error.localizedDescription)")
         }
     }
-
+    
+    func getCurrentUserID() -> String? {
+        return Auth.auth().currentUser?.uid
+    }
     
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(updateGreeting), userInfo: nil, repeats: true)
@@ -313,12 +330,10 @@ extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
             if let vc = storyboard.instantiateViewController(withIdentifier: "AddItemVCViewController_id") as? AddItemVCViewController {
-                // Set the task data to be edited
                 vc.taskTitle = data.todo ?? "No data found!"
                 vc.taskDesc = data.descriptions ?? "No data found!"
                 vc.taskStatus = data.status ?? "No data found!"
                 
-                // Set the managed object context
                 vc.context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
                 vc.task = data // Pass the task object
                 
@@ -344,24 +359,38 @@ extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func deleteTask(at indexPath: IndexPath) {
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("No user is logged in.")
+            return
+        }
+        
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let task = userData[indexPath.row]
         
-        task.isRemoved = true
-        
-        do {
-            try context.save()
-            userData.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            print("USER DATA IS MARKED AS DELETED - func deleteTask")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                self.updateRecentViewLabel()
-                self.updateCompleteTasksCount()
-                self.updateOngoingTaskCount()
-                self.updateTodoTasksCount()
+        if task.userID == userID {
+            task.isRemoved = true
+            
+            do {
+                try context.save()
+                
+                userData.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                print("USER DATA IS MARKED AS DELETED - func deleteTask")
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    self.updateRecentViewLabel()
+                    self.updateCompleteTasksCount()
+                    self.updateOngoingTaskCount()
+                    self.updateTodoTasksCount()
+                }
+                
+            } catch {
+                print("MARKING USER DATA AS DELETED ERROR WITH: ", error.localizedDescription)
             }
-        } catch {
-            print("MARKING USER DATA AS DELETED ERROR WITH: ", error.localizedDescription)
+        } else {
+            print("Attempt to delete a task that does not belong to the current user.")
         }
     }
+    
 }

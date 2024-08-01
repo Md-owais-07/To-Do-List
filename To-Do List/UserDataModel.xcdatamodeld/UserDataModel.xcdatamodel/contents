@@ -7,5 +7,6 @@
         <attribute name="isRemoved" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="status" optional="YES" attributeType="String"/>
         <attribute name="todo" optional="YES" attributeType="String"/>
+        <attribute name="userID" optional="YES" attributeType="String"/>
     </entity>
 </model>
