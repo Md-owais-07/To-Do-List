@@ -19,6 +19,3 @@ Usage
 Add Task: Tap "Add Task", fill in details, and save.
 Edit Task: Swipe left, tap "Edit", update, and save.
 Delete Task: Swipe left, tap "Delete".
-
-License
-Licensed under the MIT License.
