@@ -157,8 +157,8 @@
 				E99A12212C24A4370070B6F2 /* Info.plist */,
 				E9A6D44C2C302ED800D2D154 /* GoogleService-Info.plist */,
 				E9C248572C318093004CEA18 /* UserDataModel.xcdatamodeld */,
-				E99A12362C24CC1B0070B6F2 /* Resources */,
 				E99A12272C24B4DF0070B6F2 /* Supporting Files */,
+				E99A12362C24CC1B0070B6F2 /* Resources */,
 			);
 			path = "To-Do List";
 			sourceTree = "<group>";

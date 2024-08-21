@@ -1736,10 +1736,10 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zy1-Xv-9Ap">
                                                                         <rect key="frame" x="0.0" y="0.0" width="354" height="45"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="zain999@gmail.com" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dW0-g2-F2b">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dW0-g2-F2b">
                                                                                 <rect key="frame" x="50" y="0.0" width="296" height="45"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                                             </textField>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-user-48" translatesAutoresizingMaskIntoConstraints="NO" id="q3f-pU-r9O">
                                                                                 <rect key="frame" x="12" y="11.5" width="22" height="22"/>
@@ -1762,10 +1762,10 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRh-gL-iIM">
                                                                         <rect key="frame" x="0.0" y="63" width="354" height="45"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ZAIN1234" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="El7-TU-PKh">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="El7-TU-PKh">
                                                                                 <rect key="frame" x="50" y="0.0" width="296" height="45"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                                             </textField>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-password-48" translatesAutoresizingMaskIntoConstraints="NO" id="Gpw-fd-27S">
                                                                                 <rect key="frame" x="12" y="11.5" width="22" height="22"/>
@@ -2065,10 +2065,10 @@
                                                                                     <constraint firstAttribute="width" constant="22" id="elv-9D-cOy"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ZAIN KHAN" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i2A-t3-3q9">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i2A-t3-3q9">
                                                                                 <rect key="frame" x="50" y="0.0" width="296" height="45"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" keyboardType="namePhonePad" textContentType="name"/>
                                                                             </textField>
                                                                         </subviews>
                                                                         <viewLayoutGuide key="safeArea" id="D65-hZ-6Jl"/>
@@ -2093,10 +2093,10 @@
                                                                                     <constraint firstAttribute="height" constant="22" id="s7N-jl-W15"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="@gmail.com" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rya-su-QoN">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rya-su-QoN">
                                                                                 <rect key="frame" x="50" y="0.0" width="296" height="45"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                                             </textField>
                                                                         </subviews>
                                                                         <viewLayoutGuide key="safeArea" id="Bxq-kL-kr2"/>
@@ -2121,10 +2121,10 @@
                                                                                     <constraint firstAttribute="height" constant="22" id="X0s-Po-t1o"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ZAIN1234" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E1B-z5-fnE">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E1B-z5-fnE">
                                                                                 <rect key="frame" x="50" y="0.0" width="296" height="45"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                                             </textField>
                                                                         </subviews>
                                                                         <viewLayoutGuide key="safeArea" id="tYM-f4-aEz"/>
@@ -2149,10 +2149,10 @@
                                                                                     <constraint firstAttribute="height" constant="22" id="z6p-qD-i83"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ZAIN1234" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6eZ-rl-bpL">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6eZ-rl-bpL">
                                                                                 <rect key="frame" x="50" y="0.0" width="296" height="45"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                                             </textField>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
