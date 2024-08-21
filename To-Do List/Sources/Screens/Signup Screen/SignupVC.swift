@@ -35,6 +35,8 @@ class SignupVC: AppUiViewController {
         emailTextfield.delegate = self
         passwordTextfield.delegate = self
         confirmPassTextfield.delegate = self
+        
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -28,6 +28,8 @@ class DeletedCellVC: AppUiViewController {
         
         lblDeletedText.text = "History is Empty"
         lblDeletedDesc.text = "No deleted tasks were found."
+        
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

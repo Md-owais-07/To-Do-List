@@ -29,6 +29,8 @@ class ProfileVC: AppUiViewController, UIGestureRecognizerDelegate {
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         imgProfile.layer.cornerRadius = imgProfile.frame.size.width/2
+        
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -36,8 +36,8 @@ class AppController {
     var editProfileVC: EditProfileVC {
         AppStoryBoard.shared.Main.instantiateViewController(withIdentifier: "EditProfileVC_id") as? EditProfileVC ?? EditProfileVC()
     }
-    var startVC: ViewController {
-        AppStoryBoard.shared.Main.instantiateViewController(withIdentifier: "ViewController_id") as? ViewController ?? ViewController()
+    var startVC: WelcomeVC {
+        AppStoryBoard.shared.Main.instantiateViewController(withIdentifier: "ViewController_id") as? WelcomeVC ?? WelcomeVC()
     }
     var bottomSheet: BottomSheetVCViewController {
         AppStoryBoard.shared.Main.instantiateViewController(withIdentifier: "BottomSheetVCViewController_id") as? BottomSheetVCViewController ?? BottomSheetVCViewController()
@@ -48,7 +48,7 @@ class AppController {
     var dashboardVCd: DashboardVC {
         return DashboardVC()
     }
-    var startVCd: ViewController {
-        return ViewController()
+    var startVCd: WelcomeVC {
+        return WelcomeVC()
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIGestureRecognizerDelegate {
+class WelcomeVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var btnSignIn: UIButton!
     @IBOutlet weak var btnSignUp: UIButton!
     
@@ -33,6 +33,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             let count = navigationController.viewControllers.count
             print("Number of view controllers in the navigation stack - ViewController: \(count)")
         }
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
     @objc func animateButton() {
@@ -56,7 +57,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
 }
 
-extension ViewController {
+extension WelcomeVC {
     func ButtonDesign(_ btn: UIButton)
     {
         btn.layer.cornerRadius = 10

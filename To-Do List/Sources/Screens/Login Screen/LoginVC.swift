@@ -28,6 +28,8 @@ class LoginVC: AppUiViewController {
         self.HideKeyboardWhenTapAround()
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     override func viewDidAppear(_ animated: Bool) {

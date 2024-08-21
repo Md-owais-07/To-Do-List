@@ -78,6 +78,8 @@ class DashboardVC: AppUiViewController, UIGestureRecognizerDelegate {
         UIView.animate(withDuration: 0.9, delay: 0.5, usingSpringWithDamping: 0.9, initialSpringVelocity: 0) {
             self.lblRecentView.alpha = 1
         }
+        
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
     @objc func updateGreeting() {
