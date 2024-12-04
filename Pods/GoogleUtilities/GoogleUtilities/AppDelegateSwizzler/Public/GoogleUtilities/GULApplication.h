@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-#import "Foundation/Foundation.h"
+#import <Foundation/Foundation.h>
 
-#if TARGET_OS_IOS || TARGET_OS_TV || (defined(TARGET_OS_VISION) && TARGET_OS_VISION)
+#if TARGET_OS_IOS || TARGET_OS_TV || TARGET_OS_VISION
 
-#import "UIKit/UIKit.h"
+#import <UIKit/UIKit.h>
 
 #define GULApplication UIApplication
 #define GULApplicationDelegate UIApplicationDelegate
@@ -28,7 +28,7 @@ static NSString *const kGULApplicationClassName = @"UIApplication";
 
 #elif TARGET_OS_OSX
 
-#import "AppKit/AppKit.h"
+#import <AppKit/AppKit.h>
 
 #define GULApplication NSApplication
 #define GULApplicationDelegate NSApplicationDelegate
@@ -38,7 +38,7 @@ static NSString *const kGULApplicationClassName = @"NSApplication";
 
 #elif TARGET_OS_WATCH
 
-#import "WatchKit/WatchKit.h"
+#import <WatchKit/WatchKit.h>
 
 // We match the according watchOS API but swizzling should not work in watch
 #define GULApplication WKExtension

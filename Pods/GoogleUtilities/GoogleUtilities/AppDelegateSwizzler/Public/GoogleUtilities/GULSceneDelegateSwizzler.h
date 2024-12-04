@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-#import "Foundation/Foundation.h"
-#import "TargetConditionals.h"
+#import <Foundation/Foundation.h>
+#import <TargetConditionals.h>
 
-#if !TARGET_OS_OSX
-#import "UIKit/UIKit.h"
-#endif  // !TARGET_OS_OSX
+#if __has_include(<UIKit/UIKit.h>)
+#import <UIKit/UIKit.h>
+#endif
 
-#if ((TARGET_OS_IOS || TARGET_OS_TV) && (__IPHONE_OS_VERSION_MAX_ALLOWED >= 130000))
+#if TARGET_OS_IOS || TARGET_OS_TV
 #define UISCENE_SUPPORTED 1
 #endif
 

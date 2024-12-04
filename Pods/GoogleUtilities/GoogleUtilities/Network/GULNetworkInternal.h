@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#import "Foundation/Foundation.h"
+#import <Foundation/Foundation.h>
 
 #import "GoogleUtilities/Logger/Public/GoogleUtilities/GULLogger.h"
 

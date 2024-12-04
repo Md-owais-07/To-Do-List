@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
-#import "Foundation/Foundation.h"
+#import <Foundation/Foundation.h>
 #if !TARGET_OS_WATCH
-#import "SystemConfiguration/SystemConfiguration.h"
+#import <SystemConfiguration/SystemConfiguration.h>
 #endif
+
+NS_ASSUME_NONNULL_BEGIN
 
 /// Reachability Status
 typedef enum {
@@ -77,3 +79,5 @@ const NSString *GULReachabilityStatusString(GULReachabilityStatus status);
 - (void)stop;
 
 @end
+
+NS_ASSUME_NONNULL_END

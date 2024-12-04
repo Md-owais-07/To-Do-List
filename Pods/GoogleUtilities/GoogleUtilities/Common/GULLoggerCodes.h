@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#import "Foundation/Foundation.h"
+#import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, GULSwizzlerMessageCode) {
   // App Delegate Swizzling.

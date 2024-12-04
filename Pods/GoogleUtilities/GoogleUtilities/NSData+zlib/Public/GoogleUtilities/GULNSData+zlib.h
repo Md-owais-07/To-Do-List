@@ -12,7 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#import "Foundation/Foundation.h"
+#import <Foundation/Foundation.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 /// This is a copy of Google Toolbox for Mac library to avoid creating an extra framework.
 
@@ -24,11 +26,11 @@
 
 /// Returns an data as the result of decompressing the payload of |data|.The data to decompress must
 /// be a gzipped payloads.
-+ (NSData *)gul_dataByInflatingGzippedData:(NSData *)data error:(NSError **)error;
++ (nullable NSData *)gul_dataByInflatingGzippedData:(NSData *)data error:(NSError **)error;
 
 /// Returns an compressed data with the result of gzipping the payload of |data|. Uses the default
 /// compression level.
-+ (NSData *)gul_dataByGzippingData:(NSData *)data error:(NSError **)error;
++ (nullable NSData *)gul_dataByGzippingData:(NSData *)data error:(NSError **)error;
 
 FOUNDATION_EXPORT NSString *const GULNSDataZlibErrorDomain;
 FOUNDATION_EXPORT NSString *const GULNSDataZlibErrorKey;           // NSNumber
@@ -47,3 +49,5 @@ typedef NS_ENUM(NSInteger, GULNSDataZlibError) {
 };
 
 @end
+
+NS_ASSUME_NONNULL_END
